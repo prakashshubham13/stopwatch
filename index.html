@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" 
+    type="image/png" 
+    href="123.png">
+</head>
+<style>
+    body{
+        background: rgb(46, 45, 45);
+    }
+    .watch{
+        display: inline-block;
+        background-color: rgb(19, 19, 19);
+        width: 40%;
+        margin: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        padding: 2%;
+        text-align: center;
+        border:5px solid rgb(196, 196, 196);
+        box-shadow: 0px 5px 0px 5px black;
+        font-size: 30px;
+        border-radius: 10px 0px 10px 0px;
+        
+    }
+    .a{
+        color: rgb(255, 255, 255);
+      padding: 4px;
+    }
+    .aa{
+color: rgb(255, 255, 255);
+padding: 2px;
+    }
+    button{
+        padding: 5px;
+        margin: 15px;
+        border-radius: 5px;
+        background-color: greenyellow;
+        box-shadow: 0px 5px 5px 5px black;
+        outline: none;
+        
+    }
+</style>
+<body>
+    <div id="particles-js">
+    <h1 style="text-align: center;">STOPWATCH</h1>
+    <div class="watch">
+        <span id="hour" class="aa">00</span>
+        <span class="a">:</span>
+        <span id="min" class="aa">00</span>
+        <span class="a">:</span>
+        <span id="sec" class="aa">00</span>
+        <br>
+        <button id="start" onclick="start()">START</button>
+        <button id="stop" onclick="stop()">STOP</button>
+        <button id="reset" onclick="reset()">RESET</button>
+    </div>
+
+</div>
+
+
+    <script>
+        var ID = 0;
+        var seconds = 0;
+        var h = 0;
+        var m = 0;
+        function printmssg()
+        {
+          
+ 
+            h = seconds / 3600;
+     seconds = seconds % 3600;
+     m = seconds / 60;
+     second = seconds %  60;
+     h = Math.trunc(h);
+     m = Math.trunc(m);
+    document.getElementById('hour').innerHTML=h;
+    
+    document.getElementById('min').innerHTML=m;
+           
+            document.getElementById('sec').innerHTML=second;
+
+          
+            console.log(seconds);
+
+            seconds++;
+            
+        }
+function start()
+{
+ID = window.setInterval(printmssg,1000);
+}
+function stop()
+{
+window.clearInterval(ID);
+}
+function reset()
+{
+             
+    seconds=0;
+    h = 0;
+    m = 0;
+    document.getElementById('sec').innerHTML=seconds;
+    document.getElementById('min').innerHTML=m;
+    document.getElementById('hour').innerHTML=h;
+    seconds=0;
+    h = 0;
+    m = 0;
+  
+
+
+}
+
+    </script>
+    
+    <script type="text/javascript" src="particles.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</body>
+</html>
